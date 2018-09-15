@@ -8,12 +8,7 @@ export function* getSearch(api, action) {
   const response = yield call(api.getSearchUrl(content, pageNum))
 
   if (response.ok) {
-    const firstUser = path(['data', 'items'], response)[0]
-    const avatar = firstUser.avatar_url
-    // do data conversion here if needed
-    yield put(nHentaiMainActions.userSuccess(avatar))
-  } else {
-    yield put(nHentaiMainActions.userFailure())
+    //TODO
   }
 }
 

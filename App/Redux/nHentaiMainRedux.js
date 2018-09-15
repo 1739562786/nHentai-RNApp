@@ -1,8 +1,9 @@
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
+import Types from './Types'
 
 /* ------------- Types and Action Creators ------------- */
-const { Types, Creators } = createActions({
+const { Creators } = createActions({
   getSearch: ['content', 'pageNum'],
   getBookDetails: ['bookId'],
   getBookRecommend: ['bookId'],
