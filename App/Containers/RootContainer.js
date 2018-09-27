@@ -8,11 +8,7 @@ import StartupActions from '../Redux/StartupRedux'
 import styles from './Styles/RootContainerStyles'
 
 class RootContainer extends Component {
-  componentDidMount () {
-    this.props.startup()
-  }
-
-  render () {
+  render() {
     return (
       <View style={styles.applicationView}>
         <StatusBar barStyle='light-content' />
