@@ -1,31 +1,17 @@
-import { takeLatest, all } from 'redux-saga/effects'
-import API from '../Services/Api'
-
-/* ------------- Types ------------- */
-
-import { StartupTypes } from '../Redux/StartupRedux'
-import { GithubTypes } from '../Redux/GithubRedux'
-import { nHentaiMainTypes } from '../Redux/nHentaiMainRedux'
-/* ------------- Sagas ------------- */
-
-import { startup } from './StartupSagas'
-import { getUserAvatar } from './GithubSagas'
-import { getSearch } from './nHentaiMainSagas'
-
-/* ------------- API ------------- */
-
-// The API we use is only used from Sagas, so we create it here and pass along
-// to the sagas which need it.
-const nHentaiHomeAPI = API.nHentaiHome()
-
-/* ------------- Connect Types To Sagas ------------- */
+import { takeLatest } from 'redux-saga/effects'
+import { ExampleTypes } from 'App/Stores/Example/Actions'
+import { StartupTypes } from 'App/Stores/Startup/Actions'
+import { fetchTemperature } from './ExampleSaga'
+import { startup } from './StartupSaga'
 
 export default function* root() {
-  yield all([
-    // some sagas only receive an action
+  yield [
+    /**
+     * @see https://redux-saga.js.org/docs/basics/UsingSagaHelpers.html
+     */
+    // Run the startup saga when the application starts
     takeLatest(StartupTypes.STARTUP, startup),
-
-    // some sagas receive extra parameters in addition to an action
-    takeLatest(nHentaiMainTypes.SEARCH, getSearch, nHentaiHomeAPI.getSearchUrl)
-  ])
+    // Call `fetchTemperature()` when a `FETCH_TEMPERATURE` action is triggered
+    takeLatest(ExampleTypes.FETCH_TEMPERATURE, fetchTemperature),
+  ]
 }
