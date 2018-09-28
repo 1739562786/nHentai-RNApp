@@ -5,8 +5,7 @@ export default StyleSheet.create({
   container: {
     ...ApplicationStyles.center,
     height: Metrics.navBarHeight,
-    width: Metrics.screenWidth,
-    backgroundColor: Colors.header
+    width: Metrics.screenWidth
   },
   text: {
     fontSize: 20,

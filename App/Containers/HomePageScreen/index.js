@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList } from 'react-native'
-import HomePageItem from '../../Components/HomePageItem';
+import { Text, FlatList } from 'react-native'
+import CoverItem from '../../Components/CoverItem';
 import Header from '../../Components/Header'
-import { Metrics, ApplicationStyles } from '../../Themes/'
+import { Metrics, ApplicationStyles, Colors } from '../../Themes/'
 import API from '../../Services/Api'
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class HomePageScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: '',
+      countPage: 1,
       done: false,
       data: []
     }
   }
 
-  async loadHomepage(pageNum) {
-    var nData = await API.nHentaiHome().getHomePageUrl(pageNum);
+  async loadHomepage() {
+    var nData = await API.nHentaiHome().getHomePageUrl(this.state.countPage);
     var arrayData = nData.data.result.map((item) => {
       return {
         id: item.id,
@@ -30,22 +31,34 @@ export default class HomePageScreen extends Component {
         uploadDate: item.upload_date
       }
     })
-    this.setState({ data: arrayData, done: true })
+    var newData = [...this.state.data, ...arrayData]
+    this.setState({ data: newData, done: true })
+    console.log('HomePageScreen: load done')
   }
 
   componentDidMount() {
-    this.loadHomepage(1)
+    this.loadHomepage()
   }
 
   _keyExtractor = (item, index) => item.id;
 
   _renderItem = ({ item }) => (
-    <HomePageItem item={item} />
+    <CoverItem
+      item={item}
+      hide={true}
+      onPress={() => {
+        this.props.navigation.navigate('PreviewScreen', { data: item })
+      }} />
   );
+
+  _loadMore = () => {
+    this.setState({ countPage: this.state.countPage + 1 })
+    this.loadHomepage()
+  }
 
   render() {
     return (
-      <View style={ApplicationStyles.mainContainer}>
+      <LinearGradient colors={[Colors.g1, Colors.g2]} style={ApplicationStyles.mainContainer}>
         <Header />
         {!this.state.done ? <Text>Loading</Text> :
           <FlatList
@@ -54,9 +67,10 @@ export default class HomePageScreen extends Component {
             renderItem={this._renderItem}
             numColumns={2}
             style={[ApplicationStyles.mainContainer, { padding: Metrics.smallMargin }]}
+            onEndReached={this._loadMore}
           />
         }
-      </View>
+      </LinearGradient>
     )
   }
 }

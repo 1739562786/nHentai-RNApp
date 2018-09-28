@@ -3,30 +3,25 @@ import { createStackNavigator } from 'react-navigation'
 import NavigationService from 'App/Services/NavigationService'
 import { View } from 'react-native'
 import styles from './RootScreenStyle'
-import SplashScreen from '../SplashScreen/SplashScreen'
 import HomePageScreen from '../HomePageScreen'
+import PreviewScreen from '../PreviewScreen'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
 
-/**
- * The root screen contains the application's navigation.
- *
- * @see https://reactnavigation.org/docs/en/hello-react-navigation.html#creating-a-stack-navigator
- */
 const AppNav = createStackNavigator(
   {
-    SplashScreen: SplashScreen,
     MainScreen: HomePageScreen,
+    PreviewScreen: PreviewScreen
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'MainScreen',
     headerMode: 'none',
   }
 )
 
 class RootScreen extends Component {
   componentDidMount() {
-    this.props.startup()
+    // this.props.startup()
   }
 
   render() {
