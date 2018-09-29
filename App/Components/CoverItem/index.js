@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { TouchableOpacity, View } from 'react-native'
 import FastImage from 'react-native-fast-image'
+import Flag from 'react-native-flags';
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
@@ -24,16 +25,27 @@ export default class CoverItem extends Component {
     this.state = {
       uri: CoverThumbnail(this.props.item.mediaId, this.props.item.images.thumbnail.t),
       english: this.props.item.title.english,
-      japanese: this.props.item.title.japanese,
       pages: this.props.item.numPages,
-      tags: this.props.item.tags[0].name,
+      tags: this.props.item.tags,
       time: time.format('H:mm:ss D/M/YYYY'),
       tHeight: this.props.item.images.thumbnail.h,
-      tWidth: this.props.item.images.thumbnail.w,
-      textStyle: {
-        paddingHorizontal: 6,
-        paddingVertical: 3
-      }
+      tWidth: this.props.item.images.thumbnail.w
+    }
+  }
+
+  _findCountry() {
+    var x = this.state.tags.find((item) => {
+      return item.type == 'language' && item.name != 'translated'
+    })
+    switch (x.name) {
+      case 'english':
+        return 'GB'
+      case 'japanese':
+        return 'JP'
+      case 'chinese':
+        return 'CN'
+      default:
+        return 'unknown'
     }
   }
 
@@ -54,9 +66,11 @@ export default class CoverItem extends Component {
             }}
             resizeMode={FastImage.resizeMode.contain}
           />
-          <WhiteText text={`English title: ${this.state.english}`} styles={this.state.textStyle} />
-          <WhiteText text={`Japanese title: ${this.state.japanese}`} styles={this.state.textStyle} />
-          <WhiteText text={`Pages: ${this.state.pages}`} styles={this.state.textStyle} />
+          <WhiteText text={`${this.state.english}`} styles={styles.textStyle} />
+          <View style={{ flexDirection: 'row', paddingLeft: 10 }}>
+            <Flag code={this._findCountry()} size={32} type='flat' />
+            <WhiteText text={`Pages: ${this.state.pages}`} styles={styles.textStyle} />
+          </View>
         </LinearGradient>
       </TouchableOpacity>
     )

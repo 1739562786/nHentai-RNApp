@@ -3,15 +3,20 @@ import { createStackNavigator } from 'react-navigation'
 import NavigationService from 'App/Services/NavigationService'
 import { View } from 'react-native'
 import styles from './RootScreenStyle'
-import HomePageScreen from '../HomePageScreen'
-import PreviewScreen from '../PreviewScreen'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
+
+import HomePageScreen from '../HomePageScreen'
+import PreviewScreen from '../PreviewScreen'
+import FullImageScreen from '../FullImageScreen'
+import SearchScreen from '../SearchScreen'
 
 const AppNav = createStackNavigator(
   {
     MainScreen: HomePageScreen,
-    PreviewScreen: PreviewScreen
+    PreviewScreen: PreviewScreen,
+    FullImageScreen: FullImageScreen,
+    SearchScreen: SearchScreen
   },
   {
     initialRouteName: 'MainScreen',
@@ -20,10 +25,6 @@ const AppNav = createStackNavigator(
 )
 
 class RootScreen extends Component {
-  componentDidMount() {
-    // this.props.startup()
-  }
-
   render() {
     return (
       <View style={styles.container}>

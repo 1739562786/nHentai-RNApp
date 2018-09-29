@@ -34,7 +34,6 @@ export default class HomePageScreen extends Component {
     })
     var newData = [...this.state.data, ...arrayData]
     this.setState({ data: newData, done: true })
-    console.log('HomePageScreen: load done')
   }
 
   componentDidMount() {

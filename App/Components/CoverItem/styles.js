@@ -15,5 +15,9 @@ export default StyleSheet.create({
     right: 0,
     top: -5,
     zIndex: 2
+  },
+  textStyle: {
+    paddingHorizontal: 6,
+    paddingVertical: 3
   }
 })
