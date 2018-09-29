@@ -1,40 +1,53 @@
 import React, { Component } from 'react'
-import { FlatList, ScrollView, View } from 'react-native'
-import { Metrics, ApplicationStyles, Colors } from '../../Themes/'
-import LinearGradient from 'react-native-linear-gradient';
-import ParallaxScrollView from 'react-native-parallax-scrollview';
-import JPGorPNG from '../../Utils/JPGorPNG'
+import { FlatList, ScrollView, View, TouchableOpacity } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
+import ParallaxScrollView from 'react-native-parallax-scrollview'
+import { Button } from 'react-native-elements'
+import FastImage from 'react-native-fast-image'
+import { CoverThumbnail, PageThumbnail, FullImage } from '../../Utils/ImageURL'
 import WhiteText from '../../Components/WhiteText'
-import { Button } from 'react-native-elements';
+import Loading from '../../Components/Loading'
+import { Metrics, ApplicationStyles, Colors } from '../../Themes/'
 import styles from './styles'
-import { Config } from '../../Config'
-import FastImage from 'react-native-fast-image';
 
 export default class PreviewScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       done: false,
-      data: null
+      data: null,
+      images: null,
+      index: 0,
+      modalVisible: false
     }
   }
 
   componentDidMount() {
     var x = this.props.navigation.getParam('data')
-    this.setState({ data: this.props.navigation.getParam('data'), done: true })
+    let mediaId = x.mediaId
+    var images = x.images.pages.map((item, index) => {
+      return { source: { uri: FullImage(mediaId, index + 1, item.t) } }
+    })
+    this.setState({ data: x, done: true, images: images })
   }
 
-  _keyExtractor = (item, index) => index + '';
+  _keyExtractor = (item, index) => 'page' + index;
+
+  _onPressImage(index) {
+    this.props.navigation.navigate('FullImageScreen', { data: this.state.images, index: index })
+  }
 
   _renderItem = ({ item, index }) => (
-    <FastImage
-      style={{ width: (200 * item.w / item.h) + 3, height: 200 }}
-      source={{
-        uri: `${Config.t_NHENTAI + this.state.data.mediaId}/${index + 1}t.${JPGorPNG(item.t)}`,
-        priority: FastImage.priority.normal
-      }}
-      resizeMode={FastImage.resizeMode.contain}
-    />
+    <TouchableOpacity onPress={() => this._onPressImage(index)}>
+      <FastImage
+        style={{ width: (200 * item.w / item.h) + 3, height: 200 }}
+        source={{
+          uri: PageThumbnail(this.state.data.mediaId, index + 1, item.t),
+          priority: FastImage.priority.normal
+        }}
+        resizeMode={FastImage.resizeMode.contain}
+      />
+    </TouchableOpacity>
   );
 
   tagList(key) {
@@ -51,8 +64,8 @@ export default class PreviewScreen extends Component {
     return (
       this.state.done ?
         <ParallaxScrollView
-          windowHeight={Metrics.screenHeight * 0.45}
-          backgroundSource={{ uri: `${Config.t_NHENTAI + this.state.data.mediaId}/cover.${JPGorPNG(this.state.data.images.cover.t)}` }}
+          windowHeight={Metrics.screenHeight / 2}
+          backgroundSource={{ uri: CoverThumbnail(this.state.data.mediaId, this.state.data.images.cover.t) }}
           navBarTitle=' '
           navBarTitleColor='white'
           navBarColor='#11111122'
@@ -62,7 +75,7 @@ export default class PreviewScreen extends Component {
         >
           <LinearGradient colors={[Colors.g1, Colors.g2]} style={ApplicationStyles.mainContainer}>
             <ScrollView style={styles.container}>
-              <View style={{ padding: 20 }}>
+              <View style={{ padding: Metrics.marginVertical }}>
                 <WhiteText styles={styles.textEnglish} text={this.state.data.title.english} />
                 <WhiteText styles={styles.textJapanese} text={this.state.data.title.japanese} />
 
@@ -110,7 +123,7 @@ export default class PreviewScreen extends Component {
             </ScrollView>
           </LinearGradient>
         </ParallaxScrollView> :
-        <View />
+        <Loading />
     )
   }
 }

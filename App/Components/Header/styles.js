@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics, ApplicationStyles } from '../../Themes';
+import { Colors, Metrics, ApplicationStyles, Fonts } from '../../Themes';
 
 export default StyleSheet.create({
   container: {
@@ -8,7 +8,7 @@ export default StyleSheet.create({
     width: Metrics.screenWidth
   },
   text: {
-    fontSize: 20,
+    fontSize: Fonts.size.h3,
     fontWeight: 'bold'
   }
 })

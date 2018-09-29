@@ -5,13 +5,15 @@ import { View } from 'react-native'
 import styles from './RootScreenStyle'
 import HomePageScreen from '../HomePageScreen'
 import PreviewScreen from '../PreviewScreen'
+import FullImageScreen from '../FullImageScreen'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
 
 const AppNav = createStackNavigator(
   {
     MainScreen: HomePageScreen,
-    PreviewScreen: PreviewScreen
+    PreviewScreen: PreviewScreen,
+    FullImageScreen: FullImageScreen
   },
   {
     initialRouteName: 'MainScreen',

@@ -7,7 +7,7 @@ export default class Header extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <WhiteText text='nHentai' styles={styles.text} />
+        <WhiteText text={this.props.title} styles={styles.text} />
       </View>
     )
   }

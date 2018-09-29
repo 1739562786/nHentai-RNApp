@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Text, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import CoverItem from '../../Components/CoverItem';
 import Header from '../../Components/Header'
 import { Metrics, ApplicationStyles, Colors } from '../../Themes/'
 import API from '../../Services/Api'
+import Loading from '../../Components/Loading'
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class HomePageScreen extends Component {
@@ -59,8 +60,8 @@ export default class HomePageScreen extends Component {
   render() {
     return (
       <LinearGradient colors={[Colors.g1, Colors.g2]} style={ApplicationStyles.mainContainer}>
-        <Header />
-        {!this.state.done ? <Text>Loading</Text> :
+        <Header title='nHentai' />
+        {!this.state.done ? <Loading /> :
           <FlatList
             data={this.state.data}
             keyExtractor={this._keyExtractor}

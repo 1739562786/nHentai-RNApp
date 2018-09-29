@@ -51,6 +51,11 @@
 		7AD60FB69C73483D9FE1B789 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C29B3A2A2EC41F891B2A4C9 /* Zocial.ttf */; };
 		3D77CE750AF24E1F846D35AA /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9FAF6A34D147E5B4FD6894 /* libBVLinearGradient.a */; };
 		14BC8D4F847F46A4A06CD30E /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1897A7915867459D8C7D8114 /* libReactNativeConfig.a */; };
+		4400A964DFE04EACA589466B /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5BCADEDFFF4026B01C9F84 /* libRNSpinkit.a */; };
+		DF685A8F655D4036905170B8 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1200A587B048EC87581DDD /* Feather.ttf */; };
+		EB28FF429D2A4C07BA13A0C4 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF22B713BE9446FA946409B7 /* FontAwesome5_Brands.ttf */; };
+		976B3E9B4ECF45668505D6E6 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E22F429F0F247A0AAFC617A /* FontAwesome5_Regular.ttf */; };
+		7BE3EB1620D74CF2AAE021B5 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55084C918E6D45C5A6529B7F /* FontAwesome5_Solid.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -374,6 +379,12 @@
 		CC9FAF6A34D147E5B4FD6894 /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		365A715E9AA74B3A8EC5C303 /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeConfig.xcodeproj"; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		1897A7915867459D8C7D8114 /* libReactNativeConfig.a */ = {isa = PBXFileReference; name = "libReactNativeConfig.a"; path = "libReactNativeConfig.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		A57B85697F6C4B1C848CCA08 /* RNSpinkit.xcodeproj */ = {isa = PBXFileReference; name = "RNSpinkit.xcodeproj"; path = "../node_modules/react-native-spinkit/ios/RNSpinkit.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		AE5BCADEDFFF4026B01C9F84 /* libRNSpinkit.a */ = {isa = PBXFileReference; name = "libRNSpinkit.a"; path = "libRNSpinkit.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		7A1200A587B048EC87581DDD /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DF22B713BE9446FA946409B7 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2E22F429F0F247A0AAFC617A /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		55084C918E6D45C5A6529B7F /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +416,7 @@
 				469D78AD6C3A4ED7947F3977 /* libRNVectorIcons.a in Frameworks */,
 				3D77CE750AF24E1F846D35AA /* libBVLinearGradient.a in Frameworks */,
 				14BC8D4F847F46A4A06CD30E /* libReactNativeConfig.a in Frameworks */,
+				4400A964DFE04EACA589466B /* libRNSpinkit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +607,7 @@
 				ACEA3BBC5F2747D2B5C7B1B6 /* RNVectorIcons.xcodeproj */,
 				7840EE12AF1541CCB801B689 /* BVLinearGradient.xcodeproj */,
 				365A715E9AA74B3A8EC5C303 /* ReactNativeConfig.xcodeproj */,
+				A57B85697F6C4B1C848CCA08 /* RNSpinkit.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -656,6 +669,10 @@
 				A35944440FAE449185DAC649 /* Octicons.ttf */,
 				D310547E1076485BB7AD054A /* SimpleLineIcons.ttf */,
 				2C29B3A2A2EC41F891B2A4C9 /* Zocial.ttf */,
+				7A1200A587B048EC87581DDD /* Feather.ttf */,
+				DF22B713BE9446FA946409B7 /* FontAwesome5_Brands.ttf */,
+				2E22F429F0F247A0AAFC617A /* FontAwesome5_Regular.ttf */,
+				55084C918E6D45C5A6529B7F /* FontAwesome5_Solid.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1117,6 +1134,10 @@
 				BFE4D93758234FEF9DF83CD5 /* Octicons.ttf in Resources */,
 				5D317E76FD484C67BDC00BCE /* SimpleLineIcons.ttf in Resources */,
 				7AD60FB69C73483D9FE1B789 /* Zocial.ttf in Resources */,
+				DF685A8F655D4036905170B8 /* Feather.ttf in Resources */,
+				EB28FF429D2A4C07BA13A0C4 /* FontAwesome5_Brands.ttf in Resources */,
+				976B3E9B4ECF45668505D6E6 /* FontAwesome5_Regular.ttf in Resources */,
+				7BE3EB1620D74CF2AAE021B5 /* FontAwesome5_Solid.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1276,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1262,6 +1284,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 				);
 			};
 			name = Debug;
@@ -1287,6 +1310,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1294,6 +1318,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 				);
 			};
 			name = Release;
@@ -1320,6 +1345,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 				);
 			};
 			name = Debug;
@@ -1345,6 +1371,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 				);
 			};
 			name = Release;
@@ -1378,6 +1405,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1385,6 +1413,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 				);
 			};
 			name = Debug;
@@ -1418,6 +1447,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1425,6 +1455,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 				);
 			};
 			name = Release;
@@ -1457,6 +1488,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1464,6 +1496,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 				);
 			};
 			name = Debug;
@@ -1496,6 +1529,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1503,6 +1537,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 				);
 			};
 			name = Release;

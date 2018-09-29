@@ -3,13 +3,12 @@ import PropTypes from 'prop-types'
 import { TouchableOpacity, View } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import moment from 'moment'
-import styles from './styles'
-import WhiteText from '../WhiteText'
-import { Metrics, Colors, ApplicationStyles } from '../../Themes'
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
-import JPGorPNG from '../../Utils/JPGorPNG'
-import { Config } from '../../Config'
+import WhiteText from '../WhiteText'
+import { CoverThumbnail } from '../../Utils/ImageURL'
+import styles from './styles'
+import { Metrics, Colors, ApplicationStyles } from '../../Themes'
 
 export default class CoverItem extends Component {
   static propTypes = {
@@ -23,7 +22,7 @@ export default class CoverItem extends Component {
     super(props);
     let time = moment.unix(this.props.item.uploadDate)
     this.state = {
-      uri: `${Config.t_NHENTAI + this.props.item.mediaId}/thumb.${JPGorPNG(this.props.item.images.thumbnail.t)}`,
+      uri: CoverThumbnail(this.props.item.mediaId, this.props.item.images.thumbnail.t),
       english: this.props.item.title.english,
       japanese: this.props.item.title.japanese,
       pages: this.props.item.numPages,
@@ -36,10 +35,6 @@ export default class CoverItem extends Component {
         paddingVertical: 3
       }
     }
-  }
-
-  componentDidMount() {
-    console.log('Thumb: ', this.state.uri)
   }
 
   render() {
@@ -62,8 +57,6 @@ export default class CoverItem extends Component {
           <WhiteText text={`English title: ${this.state.english}`} styles={this.state.textStyle} />
           <WhiteText text={`Japanese title: ${this.state.japanese}`} styles={this.state.textStyle} />
           <WhiteText text={`Pages: ${this.state.pages}`} styles={this.state.textStyle} />
-          {/* <WhiteText text={`Tags: ${this.state.tags}`} styles={this.state.textStyle} /> */}
-          {/* <WhiteText text={`Time: ${this.state.time}`} styles={this.state.textStyle} /> */}
         </LinearGradient>
       </TouchableOpacity>
     )
