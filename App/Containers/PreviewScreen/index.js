@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import ParallaxScrollView from 'react-native-parallax-scrollview'
 import { Button } from 'react-native-elements'
 import FastImage from 'react-native-fast-image'
+import ImageView from 'react-native-image-view';
 import { CoverThumbnail, PageThumbnail, FullImage } from '../../Utils/ImageURL'
 import WhiteText from '../../Components/WhiteText'
 import Loading from '../../Components/Loading'
@@ -18,7 +19,7 @@ export default class PreviewScreen extends Component {
       data: null,
       images: null,
       index: 0,
-      modalVisible: false
+      isImageViewVisible: false
     }
   }
 
@@ -26,7 +27,13 @@ export default class PreviewScreen extends Component {
     var x = this.props.navigation.getParam('data')
     let mediaId = x.mediaId
     var images = x.images.pages.map((item, index) => {
-      return { source: { uri: FullImage(mediaId, index + 1, item.t) } }
+      return {
+        source: {
+          uri: FullImage(mediaId, index + 1, item.t),
+        },
+        width: item.w,
+        height: item.h
+      }
     })
     this.setState({ data: x, done: true, images: images })
   }
@@ -34,7 +41,7 @@ export default class PreviewScreen extends Component {
   _keyExtractor = (item, index) => 'page' + index;
 
   _onPressImage(index) {
-    this.props.navigation.navigate('FullImageScreen', { data: this.state.images, index: index })
+    this.setState({ isImageViewVisible: true, index: index })
   }
 
   _renderItem = ({ item, index }) => (
@@ -122,6 +129,12 @@ export default class PreviewScreen extends Component {
               </View>
             </ScrollView>
           </LinearGradient>
+          <ImageView
+            glideAlways
+            images={this.state.images}
+            imageIndex={this.state.index}
+            isVisible={this.state.isImageViewVisible}
+          />
         </ParallaxScrollView> :
         <Loading />
     )
