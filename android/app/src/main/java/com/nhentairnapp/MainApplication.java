@@ -3,6 +3,7 @@ package com.nhentairnapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import ui.shine.RNShineButtonPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNShineButtonPackage(),
             new RNSpinkitPackage(),
             new ReactNativeConfigPackage(),
             new LinearGradientPackage(),

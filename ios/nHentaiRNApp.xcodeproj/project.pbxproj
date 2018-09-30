@@ -56,6 +56,7 @@
 		EB28FF429D2A4C07BA13A0C4 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF22B713BE9446FA946409B7 /* FontAwesome5_Brands.ttf */; };
 		976B3E9B4ECF45668505D6E6 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E22F429F0F247A0AAFC617A /* FontAwesome5_Regular.ttf */; };
 		7BE3EB1620D74CF2AAE021B5 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55084C918E6D45C5A6529B7F /* FontAwesome5_Solid.ttf */; };
+		777F3BA0E74D4A4D9E316E05 /* libRNShineButton.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEEA5E1B06547C58F81D5DF /* libRNShineButton.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -385,6 +386,8 @@
 		DF22B713BE9446FA946409B7 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		2E22F429F0F247A0AAFC617A /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		55084C918E6D45C5A6529B7F /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		58BD3BC118194E2DA33DD64A /* RNShineButton.xcodeproj */ = {isa = PBXFileReference; name = "RNShineButton.xcodeproj"; path = "../node_modules/react-native-shine-button/ios/RNShineButton.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		CBEEA5E1B06547C58F81D5DF /* libRNShineButton.a */ = {isa = PBXFileReference; name = "libRNShineButton.a"; path = "libRNShineButton.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +420,7 @@
 				3D77CE750AF24E1F846D35AA /* libBVLinearGradient.a in Frameworks */,
 				14BC8D4F847F46A4A06CD30E /* libReactNativeConfig.a in Frameworks */,
 				4400A964DFE04EACA589466B /* libRNSpinkit.a in Frameworks */,
+				777F3BA0E74D4A4D9E316E05 /* libRNShineButton.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +612,7 @@
 				7840EE12AF1541CCB801B689 /* BVLinearGradient.xcodeproj */,
 				365A715E9AA74B3A8EC5C303 /* ReactNativeConfig.xcodeproj */,
 				A57B85697F6C4B1C848CCA08 /* RNSpinkit.xcodeproj */,
+				58BD3BC118194E2DA33DD64A /* RNShineButton.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1277,6 +1282,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1285,6 +1291,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-shine-button\ios",
 				);
 			};
 			name = Debug;
@@ -1311,6 +1318,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1319,6 +1327,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-shine-button\ios",
 				);
 			};
 			name = Release;
@@ -1346,6 +1355,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-shine-button\ios",
 				);
 			};
 			name = Debug;
@@ -1372,6 +1382,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-shine-button\ios",
 				);
 			};
 			name = Release;
@@ -1406,6 +1417,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1414,6 +1426,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-shine-button\ios",
 				);
 			};
 			name = Debug;
@@ -1448,6 +1461,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1456,6 +1470,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-shine-button\ios",
 				);
 			};
 			name = Release;
@@ -1489,6 +1504,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1497,6 +1513,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-shine-button\ios",
 				);
 			};
 			name = Debug;
@@ -1530,6 +1547,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1538,6 +1556,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-shine-button\ios",
 				);
 			};
 			name = Release;
