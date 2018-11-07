@@ -106,9 +106,6 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
-        jackOptions {
-            enabled true
-        }
     }
     splits {
         abi {
@@ -139,30 +136,13 @@ android {
     }
 }
 
-buildscript {
-    repositories {
-        jcenter()
-        google()
-        maven { url "https://jitpack.io" }
-    }
-
-}
-
-allprojects {
-    repositories {
-        jcenter()
-        google()
-        maven { url "https://jitpack.io" }
-    }
-}
-
 dependencies {
-    compile project(':react-native-shine-button')
-    compile project(':react-native-spinkit')
-    compile project(':react-native-config')
-    compile project(':react-native-linear-gradient')
     compile project(':react-native-vector-icons')
+    compile project(':react-native-spinkit')
+    compile project(':react-native-photo-view')
+    compile project(':react-native-linear-gradient')
     compile project(':react-native-fast-image')
+    compile project(':react-native-config')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules

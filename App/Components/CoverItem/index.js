@@ -4,8 +4,8 @@ import { TouchableOpacity, View } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import Flag from 'react-native-flags';
 import moment from 'moment'
-import Icon from 'react-native-vector-icons/Ionicons';
-import LinearGradient from 'react-native-linear-gradient';
+import Icon from 'react-native-vector-icons/Ionicons'
+import LinearGradient from 'react-native-linear-gradient'
 import WhiteText from '../WhiteText'
 import { CoverThumbnail } from '../../Utils/ImageURL'
 import styles from './styles'

@@ -6,10 +6,10 @@ import styles from './RootScreenStyle'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
 
-import HomePageScreen from '../HomePageScreen'
-import PreviewScreen from '../PreviewScreen'
-import FullImageScreen from '../FullImageScreen'
-import SearchScreen from '../SearchScreen'
+import HomePageScreen from '../HomePageScreen/HomePage'
+import PreviewScreen from '../PreviewScreen/Preview'
+import FullImageScreen from '../FullImageScreen/FullImage'
+import SearchScreen from '../SearchScreen/Search'
 
 const AppNav = createStackNavigator(
   {
