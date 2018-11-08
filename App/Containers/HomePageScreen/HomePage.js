@@ -1,22 +1,25 @@
 import React, { PureComponent } from 'react'
 import { FlatList, View } from 'react-native'
-import { SearchBar } from 'react-native-elements'
 import LinearGradient from 'react-native-linear-gradient'
 import Spinkit from 'react-native-spinkit'
+import { connect } from 'react-redux'
 import _ from 'lodash'
 
+import SearchBar from '../../Components/SearchBar/SearchBar'
+import SearchHistoryActions from '../../Stores/SearchHistory/Actions'
 import CoverItem from '../../Components/CoverItem'
 import Header from '../../Components/Header'
 import { Metrics, ApplicationStyles, Colors } from '../../Themes'
 import API from '../../Services/Api'
 
-export default class HomePageScreen extends PureComponent {
+class HomePageScreen extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       countPage: 1,
       loading: true,
-      data: []
+      data: [],
+      keyword: ''
     }
     this._loadMore = _.debounce(this._loadMore, 1000)
   }
@@ -65,19 +68,18 @@ export default class HomePageScreen extends PureComponent {
       <Spinkit type='WanderingCubes' size={30} color='white' />
     </View>
 
-  _onChangeText = (text) => this.setState({ keyword: text })
-
-  _onClearText = () => this.setState({ keyword: '' })
+  _onSearch = () => {
+    if (this.state.keyword.length !== 0) {
+      this.props.addSearchHistoryItem(this.state.keyword)
+    }
+  }
 
   render() {
     return (
       <LinearGradient colors={[Colors.g1, Colors.g2]}
         style={ApplicationStyles.mainContainer}>
         <Header title='nHentai' />
-        <SearchBar
-          onChangeText={this._onChangeText}
-          onClearText={this._onClearText}
-          placeholder='Type Here...' />
+        <SearchBar placeholder='Type Here...' />
         <FlatList
           data={this.state.data}
           keyExtractor={this._keyExtractor}
@@ -92,3 +94,7 @@ export default class HomePageScreen extends PureComponent {
     )
   }
 }
+
+const mapStateToProps = (state) => ({})
+const mapDispatchToProps = (dispatch) => ({})
+export default connect(mapStateToProps, mapDispatchToProps)(HomePageScreen)

@@ -1,9 +1,10 @@
 import { createActions } from 'reduxsauce'
 
 const { Types, Creators } = createActions({
-  loadSearchHistory: ['keywords'],
-  addSearchHistoryItem: ['keywords'],
-  deleteSearchHistoryItem: ['keywords'],
+  loadSearchHistory: null,
+  saveSearchHistory: ['keywords'],
+  addSearchHistoryItem: ['keyword'],
+  deleteSearchHistoryItem: null,
   cleanSearchHistory: null
 })
 

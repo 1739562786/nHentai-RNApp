@@ -4,7 +4,7 @@ import NavigationService from 'App/Services/NavigationService'
 import { View } from 'react-native'
 import styles from './RootScreenStyle'
 import { connect } from 'react-redux'
-import StartupActions from 'App/Stores/Startup/Actions'
+import SearchHistoryActions from '../../Stores/SearchHistory/Actions'
 
 import HomePageScreen from '../HomePageScreen/HomePage'
 import PreviewScreen from '../PreviewScreen/Preview'
@@ -25,6 +25,10 @@ const AppNav = createStackNavigator(
 )
 
 class RootScreen extends Component {
+  componentDidMount() {
+    this.props.loadSearchHistory()
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -41,7 +45,7 @@ class RootScreen extends Component {
 const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = (dispatch) => ({
-  startup: () => dispatch(StartupActions.startup()),
+  loadSearchHistory: () => dispatch(SearchHistoryActions.loadSearchHistory()),
 })
 
 export default connect(

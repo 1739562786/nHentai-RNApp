@@ -1,10 +1,10 @@
 import { takeLatest } from 'redux-saga/effects'
-import { StartupTypes } from 'App/Stores/Startup/Actions'
 import { SearchHistoryTypes } from '../Stores/SearchHistory/Actions'
-import { startup } from './StartupSaga'
+import { loadSearchHistory, addSearchHistoryItem } from './SearchHistorySaga'
 
 export default function* root() {
   yield [
-    takeLatest(StartupTypes.STARTUP, startup)
+    takeLatest(SearchHistoryTypes.LOAD_SEARCH_HISTORY, loadSearchHistory),
+    takeLatest(SearchHistoryTypes.ADD_SEARCH_HISTORY_ITEM, addSearchHistoryItem)
   ]
 }
