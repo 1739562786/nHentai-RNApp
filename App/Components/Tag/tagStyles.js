@@ -1,14 +1,18 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics, ApplicationStyles, Fonts } from '../../Themes';
 
 export default StyleSheet.create({
   container: {
     padding: 10,
     flexDirection: 'row',
-    backgroundColor: 'orange',
-    marginHorizontal: 5
+    marginHorizontal: 5,
+    height: 40,
+    borderRadius: 20
   },
   text: {
     color: 'white'
+  },
+  delete: {
+    paddingHorizontal: 5,
+    marginLeft: 5
   }
 })

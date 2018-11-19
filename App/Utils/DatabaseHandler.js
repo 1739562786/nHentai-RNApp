@@ -5,7 +5,7 @@ function loadKeywords() {
   return new Promise((resolve, reject) => {
     HistoryKeyword.onLoaded(() => {
       let data = HistoryKeyword.data()
-      resolve(data)
+      resolve(data.reverse())
     })
   })
 }
@@ -15,13 +15,13 @@ function addKeyword(keyword) {
     let data = HistoryKeyword.insert({
       keyword: keyword,
       time: moment.now().toString()
-    }, save = true)
+    }, save = true)[0]
     resolve(data)
   })
 }
 
-function deleteKeyword(keyword) {
+function removeKeyword(keyword) {
   HistoryKeyword.remove(keyword, save = true)
 }
 
-export const DatabaseHandler = { loadKeywords, addKeyword, deleteKeyword }
+export const DatabaseHandler = { loadKeywords, addKeyword, removeKeyword }

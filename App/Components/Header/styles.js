@@ -8,7 +8,7 @@ export default StyleSheet.create({
     width: Metrics.screenWidth
   },
   text: {
-    fontSize: Fonts.size.h3,
+    fontSize: Fonts.size.h4,
     fontWeight: 'bold'
   }
 })

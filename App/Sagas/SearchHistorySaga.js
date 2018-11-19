@@ -3,19 +3,7 @@ import { put, call } from 'redux-saga/effects'
 import SearchHistoryActions from '../Stores/SearchHistory/Actions'
 
 async function getSearchHistory() {
-  try {
-    const value = await AsyncStorage.getItem('keywords')
-    if (value !== null) {
-      // We have data!!
-      var a = JSON.parse(value)
-      console.log(a)
-      return a
-    } else {
-      return []
-    }
-  } catch (error) {
-    return []
-  }
+  return []
 }
 
 async function setSearchHistory(value) {
