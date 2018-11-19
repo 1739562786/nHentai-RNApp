@@ -73,7 +73,7 @@ export default class PreviewScreen extends Component {
           backgroundSource={{ uri: CoverThumbnail(this.state.data.mediaId, this.state.data.images.cover.t) }}
           navBarTitle=' '
           navBarTitleColor='white'
-          navBarColor='#11111122'
+          navBarColor='#1112'
           headerView={<View />}
           leftIcon={{ name: 'md-arrow-round-back', color: 'white', size: 30, type: 'ionicon' }}
           leftIconOnPress={() => this.props.navigation.goBack()}
