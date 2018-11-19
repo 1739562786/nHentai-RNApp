@@ -1,16 +1,17 @@
 import React, { PureComponent } from 'react'
-import { FlatList, View } from 'react-native'
+import { FlatList, View, TextInput, Text } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import Spinkit from 'react-native-spinkit'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 
-import SearchBar from '../../Components/SearchBar/SearchBar'
-import SearchHistoryActions from '../../Stores/SearchHistory/Actions'
+import { DatabaseHandler } from '../../Utils/DatabaseHandler'
 import CoverItem from '../../Components/CoverItem'
 import Header from '../../Components/Header'
 import { Metrics, ApplicationStyles, Colors } from '../../Themes'
+import styles from './styles'
 import API from '../../Services/Api'
+import Tag from '../../Components/Tag/Tag'
 
 class HomePageScreen extends PureComponent {
   constructor(props) {
@@ -19,7 +20,8 @@ class HomePageScreen extends PureComponent {
       countPage: 1,
       loading: true,
       data: [],
-      keyword: ''
+      keyword: '',
+      keywords: []
     }
     this._loadMore = _.debounce(this._loadMore, 1000)
   }
@@ -46,6 +48,7 @@ class HomePageScreen extends PureComponent {
 
   componentDidMount() {
     this.loadHomepage()
+    DatabaseHandler.loadKeywords().then(res => this.setState({ keywords: res }))
   }
 
   _keyExtractor = (item, index) => item.id
@@ -55,6 +58,12 @@ class HomePageScreen extends PureComponent {
       item={item}
       hide={true}
       onPress={this.goToPreview(item)} />
+
+  _keyExtractorForKeyword = (item, index) => item.id
+
+  _renderKeyword = ({ item }) => <Tag text={item.keyword}
+    onPress={this._onPressKeyword(item)}
+    onPressRemoveKeyword={this._removeKeyword(item)} />
 
   goToPreview = (item) => () => this.props.navigation.navigate('PreviewScreen', { data: item })
 
@@ -69,17 +78,37 @@ class HomePageScreen extends PureComponent {
     </View>
 
   _onSearch = () => {
-    if (this.state.keyword.length !== 0) {
-      this.props.addSearchHistoryItem(this.state.keyword)
+    if (this.state.keyword.length !== 0 && _.indexOf(this.state.keywords, this.state.keyword) === -1) {
+      DatabaseHandler.addKeyword(this.state.keyword).then(res => {
+        let data = [...this.state.keywords, res]
+        this.setState({ keywords: data })
+      })
     }
   }
+
+  _onChangeText = (text) => this.setState({ keyword: text })
+
+  _removeKeyword = (item) => { }
+
+  _onPressKeyword = (item) => { }
 
   render() {
     return (
       <LinearGradient colors={[Colors.g1, Colors.g2]}
         style={ApplicationStyles.mainContainer}>
         <Header title='nHentai' />
-        <SearchBar placeholder='Type Here...' />
+        <TextInput style={styles.searchInput}
+          onChangeText={this._onChangeText}
+          onSubmitEditing={this._onSearch}
+          placeholder={'Type here...'}
+          value={this.state.keyword} />
+        <FlatList
+          horizontal
+          data={this.state.keywords.reverse()}
+          keyExtractor={this._keyExtractorForKeyword}
+          renderItem={this._renderKeyword}
+          style={{ height: 20 }}
+        />
         <FlatList
           data={this.state.data}
           keyExtractor={this._keyExtractor}

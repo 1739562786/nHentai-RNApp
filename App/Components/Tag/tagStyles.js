@@ -5,11 +5,10 @@ export default StyleSheet.create({
   container: {
     padding: 10,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: 'white'
+    backgroundColor: 'orange',
+    marginHorizontal: 5
   },
   text: {
-    fontSize: Fonts.size.h3,
-    fontWeight: 'bold'
+    color: 'white'
   }
 })
