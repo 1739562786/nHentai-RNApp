@@ -55,22 +55,34 @@ export default class PreviewScreen extends Component {
     </TouchableOpacity>
   );
 
-  tagList(key) {
-    var filterData = this.state.data.tags.filter((item) => { return item.type == key })
-    return filterData.map((item) => {
-      return <Button
-        key={item.id}
-        title={item.name}
-        buttonStyle={styles.button} />
+  _onPressTag = (name) => () => {
+    this.props.navigation.navigate({
+      routeName: 'MainScreen',
+      params: {
+        search: name
+      },
+      key: 'MainScreen:' + name
     })
   }
 
+  tagList(key) {
+    var filterData = this.state.data.tags.filter((item) => { return item.type == key })
+    let list = filterData.map(item =>
+      <Button key={item.id} onPress={this._onPressTag(item.name)}
+        title={item.name} buttonStyle={styles.button} />)
+    return list
+  }
+
   render() {
+    let bg = {}
+    if (this.state.done) {
+      bg = { uri: CoverThumbnail(this.state.data.mediaId, this.state.data.images.cover.t) }
+    }
     return (
       this.state.done ?
         <ParallaxScrollView
           windowHeight={Metrics.screenHeight / 2}
-          backgroundSource={{ uri: CoverThumbnail(this.state.data.mediaId, this.state.data.images.cover.t) }}
+          backgroundSource={bg}
           navBarTitle=' '
           navBarTitleColor='white'
           navBarColor='#1112'

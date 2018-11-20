@@ -1,25 +1,22 @@
 import React, { Component } from 'react'
-import { createStackNavigator } from 'react-navigation'
-import NavigationService from 'App/Services/NavigationService'
 import { View } from 'react-native'
-import styles from './RootScreenStyle'
+import { createStackNavigator } from 'react-navigation'
 import { connect } from 'react-redux'
+import NavigationService from 'App/Services/NavigationService'
 
 import HomePageScreen from '../HomePageScreen/HomePage'
 import PreviewScreen from '../PreviewScreen/Preview'
 import FullImageScreen from '../FullImageScreen/FullImage'
-import SearchScreen from '../SearchScreen/Search'
 
 const AppNav = createStackNavigator(
   {
     MainScreen: HomePageScreen,
     PreviewScreen: PreviewScreen,
-    FullImageScreen: FullImageScreen,
-    SearchScreen: SearchScreen
+    FullImageScreen: FullImageScreen
   },
   {
     initialRouteName: 'MainScreen',
-    headerMode: 'none',
+    headerMode: 'none'
   }
 )
 
@@ -30,12 +27,9 @@ class RootScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         <AppNav
-          ref={(navigatorRef) => {
-            NavigationService.setTopLevelNavigator(navigatorRef)
-          }}
-        />
+          ref={(navigatorRef) => { NavigationService.setTopLevelNavigator(navigatorRef) }} />
       </View>
     )
   }

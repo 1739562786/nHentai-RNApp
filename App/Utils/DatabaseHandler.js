@@ -5,7 +5,8 @@ function loadKeywords() {
   return new Promise((resolve, reject) => {
     HistoryKeyword.onLoaded(() => {
       let data = HistoryKeyword.data()
-      resolve(data.reverse())
+      data.sort((a, b) => moment(a).isBefore(b))
+      resolve(data)
     })
   })
 }

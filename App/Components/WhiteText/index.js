@@ -2,6 +2,17 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Text } from 'react-native'
 
+/**
+ * White text
+ *
+ * Prop:
+ * - text: Text to display
+ * - styles: Style for text
+ * 
+ * @export
+ * @class WhiteText
+ * @extends {Component}
+ */
 export default class WhiteText extends Component {
   static propTypes = {
     text: PropTypes.string,
