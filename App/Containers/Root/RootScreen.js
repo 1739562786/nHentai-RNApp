@@ -22,7 +22,9 @@ const AppNav = createStackNavigator(
 
 class RootScreen extends Component {
   componentDidMount() {
-    console.clear()
+    if (__DEV__) {
+      console.clear()
+    }
   }
 
   render() {

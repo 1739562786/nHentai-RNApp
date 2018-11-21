@@ -2,16 +2,17 @@ import React, { PureComponent } from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/Ionicons'
-import styles from './tagStyles'
+
+import { randomString } from '../../Utils'
+import { Config } from '../../Config'
 import { ApplicationStyles } from '../../Themes'
+import styles from './tagStyles'
 
 export default class Tag extends PureComponent {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const { onPressItem, onPressRemoveKeyword, text } = this.props
+    let _text = text
+    if (Config.hideNSFW) _text = randomString()
     return (
       <LinearGradient colors={['orange', 'red']}
         start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
@@ -19,7 +20,7 @@ export default class Tag extends PureComponent {
         <TouchableOpacity onPress={onPressItem}
           style={ApplicationStyles.center}>
           <View>
-            <Text style={styles.text}>{text}</Text>
+            <Text style={styles.text}>{_text}</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={onPressRemoveKeyword}

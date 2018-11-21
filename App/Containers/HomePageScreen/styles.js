@@ -16,6 +16,8 @@ export default StyleSheet.create({
     flex: 1
   },
   centerHeader: {
+    justifyContent: 'center',
+    alignItems: 'center',
     flex: 5
   },
   rightHeader: {

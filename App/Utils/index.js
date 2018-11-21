@@ -1,5 +1,11 @@
 import { Config } from '../Config'
-import JPGorPNG from './JPGorPNG'
+
+const JPGorPNG = (key) => {
+  if (key === 'j') return 'jpg'
+  return 'png'
+}
+
+export const randomString = () => Math.random().toString(36).substring(2, 10)
 
 export function CoverThumbnail(mediaId, type) {
   return `${Config.t_NHENTAI + mediaId}/cover.${JPGorPNG(type)}`

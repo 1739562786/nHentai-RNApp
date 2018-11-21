@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import moment from 'moment'
 import { Config } from '../../Config'
 import WhiteText from '../WhiteText/WhiteText'
-import { CoverThumbnail } from '../../Utils/ImageURL'
+import { CoverThumbnail } from '../../Utils'
 import { Metrics, Colors, ApplicationStyles } from '../../Themes'
 import styles from './styles'
 
@@ -38,7 +38,7 @@ export default class CoverItem extends Component {
     hide: true
   }
 
-  _findCountry = () => {
+  _findCountry() {
     let x = this.props.item.tags.find(item => item.type === 'language' && item.name !== 'translated')
     switch (x.name) {
       case 'english':
@@ -63,7 +63,11 @@ export default class CoverItem extends Component {
       uri: CoverThumbnail(item.mediaId, item.images.thumbnail.t),
       priority: FastImage.priority.normal
     }
-    if (Config.hideNSFW) _image = Config.SFWImage
+    if (Config.hideNSFW) {
+      _image = Config.SFWImages[0].i
+      tHeight = Config.SFWImages[0].h
+      tWidth = Config.SFWImages[0].w
+    }
     return (
       <TouchableOpacity onPress={this.props.onPress}
         style={[styles.container, this.props.styles]}>
@@ -80,7 +84,7 @@ export default class CoverItem extends Component {
             resizeMode={FastImage.resizeMode.contain} />
           <WhiteText text={`${english}`} styles={styles.textStyle} />
           <View style={styles.secondLine}>
-            <Flag code={this._findCountry} size={32} type='flat' />
+            <Flag code={this._findCountry()} size={32} type='flat' />
             <WhiteText text={`Pages: ${pages}`} styles={styles.textStyle} />
           </View>
         </LinearGradient>

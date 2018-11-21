@@ -1,53 +1,51 @@
 import React, { Component } from 'react'
 import { FlatList, View } from 'react-native'
-import { Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements'
 import FastImage from 'react-native-fast-image'
-import { Metrics } from '../../Themes/'
+
+import { Config } from '../../Config'
+import styles from './styles'
 
 export default class FullImageScreen extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       images: this.props.navigation.getParam('images'),
       index: this.props.navigation.getParam('index')
     }
   }
 
-  _keyExtractor = (item, index) => 'page' + index;
+  _keyExtractor = (item, index) => 'page' + index
 
-  _renderItem = ({ item, index }) => (
-    <View style={{ width: Metrics.screenWidth, height: Metrics.screenHeight }}>
-      <FastImage
-        style={{ width: Metrics.screenWidth, height: Metrics.screenHeight }}
-        source={{
-          uri: item.uri,
-          priority: FastImage.priority.high
-        }}
-        resizeMode={FastImage.resizeMode.contain}
-      />
-    </View>
-  );
+  _renderItem = ({ item, index }) => {
+    var _img = {
+      uri: item.uri,
+      priority: FastImage.priority.high
+    }
+    if (Config.hideNSFW) {
+      _img = Config.SFWImages[index % 10].i
+    }
+    return (
+      <View style={styles.image}>
+        <FastImage source={_img}
+          style={styles.image}
+          resizeMode={FastImage.resizeMode.contain} />
+      </View>
+    )
+  }
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: 'black' }}>
-        <Icon name='md-arrow-round-back' color='white' size={30} type='ionicon'
+      <View style={styles.container}>
+        <Icon name='md-arrow-round-back' color='white' size={30}
+          type='ionicon' underlayColor='transparent'
           onPress={() => this.props.navigation.goBack()}
-          underlayColor='transparent'
-          containerStyle={{
-            position: 'absolute',
-            top: 20,
-            left: 20,
-            zIndex: 3
-          }} />
-        <FlatList
-          horizontal
-          pagingEnabled
+          containerStyle={styles.backIcon} />
+        <FlatList horizontal pagingEnabled
           keyExtractor={this._keyExtractor}
           data={this.state.images}
           renderItem={this._renderItem}
-          style={{ flex: 1, backgroundColor: 'black' }}
-        />
+          style={styles.container} />
       </View>
     )
   }

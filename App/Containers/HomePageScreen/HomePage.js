@@ -5,13 +5,14 @@ import LinearGradient from 'react-native-linear-gradient'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 
-import { DatabaseHandler } from '../../Utils/DatabaseHandler'
 import CoverItem from '../../Components/CoverItem/CoverItem'
+import Tag from '../../Components/Tag/Tag'
 import WhiteText from '../../Components/WhiteText/WhiteText'
+import API from '../../Services/Api'
+import { Config } from '../../Config'
+import { DatabaseHandler } from '../../Utils/DatabaseHandler'
 import { ApplicationStyles, Colors } from '../../Themes'
 import styles from './styles'
-import API from '../../Services/Api'
-import Tag from '../../Components/Tag/Tag'
 
 class HomePageScreen extends PureComponent {
   constructor(props) {
@@ -129,6 +130,7 @@ class HomePageScreen extends PureComponent {
     return (
       <LinearGradient colors={[Colors.g1, Colors.g2]}
         style={ApplicationStyles.mainContainer}>
+        {/* HEADER */}
         <View style={styles.header}>
           <View style={[styles.leftHeader, ApplicationStyles.center]}>
             {search !== null && <Icon name={'ios-arrow-back'} color={'white'}
@@ -136,11 +138,13 @@ class HomePageScreen extends PureComponent {
           </View>
           <View style={styles.centerHeader}>
             <TouchableOpacity onPress={this._onResetSearch}>
-              <WhiteText text={'nHentai'} styles={styles.headerText} />
+              <WhiteText text={Config.header} styles={styles.headerText} />
             </TouchableOpacity>
           </View>
           <View style={styles.rightHeader} />
         </View>
+
+        {/* SEARCH BAR */}
         <View style={[styles.searchBar, ApplicationStyles.center]}>
           <TextInput style={styles.searchInput}
             onChangeText={this._onChangeText}
@@ -156,15 +160,19 @@ class HomePageScreen extends PureComponent {
             <Icon name={'ios-search'} size={40} color={'white'} />
           </TouchableOpacity>
         </View>
-        <View style={styles.keywordView}>
-          <FlatList horizontal
-            showsHorizontalScrollIndicator={false}
-            data={this.state.keywords}
-            keyExtractor={this._keyExtractorForKeyword}
-            renderItem={this._renderKeyword}
-            contentContainerStyle={styles.keywordItem}
-          />
-        </View>
+
+        {/* KEYWORD LIST */}
+        {this.state.keywords.length !== 0 &&
+          <View style={styles.keywordView}>
+            <FlatList horizontal
+              showsHorizontalScrollIndicator={false}
+              data={this.state.keywords}
+              keyExtractor={this._keyExtractorForKeyword}
+              renderItem={this._renderKeyword}
+              contentContainerStyle={styles.keywordItem} />
+          </View>}
+
+        {/* HENTAI LIST */}
         <FlatList
           showsVerticalScrollIndicator={false}
           data={this.state.data}
