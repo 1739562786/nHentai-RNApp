@@ -19,5 +19,9 @@ export default StyleSheet.create({
   textStyle: {
     paddingHorizontal: 6,
     paddingVertical: 3
+  },
+  secondLine: {
+    flexDirection: 'row',
+    paddingLeft: 10
   }
 })

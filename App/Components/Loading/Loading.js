@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import Spinkit from 'react-native-spinkit'
-import WhiteText from '../WhiteText'
+import WhiteText from '../WhiteText/WhiteText'
 import { ApplicationStyles, Fonts, Metrics } from '../../Themes'
 
 export default class Loading extends Component {
