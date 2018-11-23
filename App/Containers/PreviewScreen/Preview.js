@@ -41,7 +41,7 @@ export default class PreviewScreen extends Component {
 
   _onPressImage(index) {
     // this.setState({ isImageViewVisible: true, index: index })
-    this.props.navigation.navigate('FullImageScreen', { images: this.state.images, index: index })
+    this.props.navigation.navigate('ImageViewerScreen', { images: this.state.images, index: index })
   }
 
   _renderItem = ({ item, index }) => {

@@ -4,16 +4,19 @@ import { Metrics } from '../../Themes'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black'
+    backgroundColor: '#000',
   },
-  backIcon: {
-    position: 'absolute',
-    top: 20,
-    left: 20,
-    zIndex: 3
+  slide: {
+    flex: 1,
   },
-  image: {
+  photo: {
     width: Metrics.screenWidth,
-    height: Metrics.screenHeight
+    height: Metrics.screenHeight,
+  },
+  close: {
+    position: 'absolute',
+    left: 20,
+    top: 10,
+    zIndex: 10
   }
 })

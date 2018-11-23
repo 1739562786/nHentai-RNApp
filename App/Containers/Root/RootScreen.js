@@ -6,13 +6,13 @@ import NavigationService from 'App/Services/NavigationService'
 
 import HomePageScreen from '../HomePageScreen/HomePage'
 import PreviewScreen from '../PreviewScreen/Preview'
-import FullImageScreen from '../FullImageScreen/FullImage'
+import ImageViewerScreen from '../ImageViewer/ImageViewer'
 
 const AppNav = createStackNavigator(
   {
     MainScreen: HomePageScreen,
     PreviewScreen: PreviewScreen,
-    FullImageScreen: FullImageScreen
+    ImageViewerScreen: ImageViewerScreen
   },
   {
     initialRouteName: 'MainScreen',
