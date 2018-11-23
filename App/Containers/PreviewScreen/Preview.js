@@ -8,6 +8,7 @@ import ParallaxScrollView from 'react-native-parallax-scrollview'
 import Loading from '../../Components/Loading/Loading'
 import WhiteText from '../../Components/WhiteText/WhiteText'
 import { Config } from '../../Config'
+import { DatabaseHandler } from '../../Utils/DatabaseHandler'
 import { CoverThumbnail, PageThumbnail, FullImage, randomString } from '../../Utils'
 import { Metrics, ApplicationStyles, Colors } from '../../Themes'
 import styles from './styles'
@@ -64,10 +65,12 @@ export default class PreviewScreen extends Component {
   }
 
   _onPressTag = (name) => () => {
-    this.props.navigation.navigate({
-      routeName: 'MainScreen',
-      params: { search: name },
-      key: 'MainScreen:' + name
+    DatabaseHandler.addKeyword(name).then(res => {
+      this.props.navigation.navigate({
+        routeName: 'MainScreen',
+        params: { search: name },
+        key: 'MainScreen:' + name
+      })
     })
   }
 

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { FlatList, View, TextInput, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import LinearGradient from 'react-native-linear-gradient'
+import { NavigationEvents } from 'react-navigation'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 
@@ -13,6 +14,7 @@ import { Config } from '../../Config'
 import { DatabaseHandler } from '../../Utils/DatabaseHandler'
 import { ApplicationStyles, Colors } from '../../Themes'
 import styles from './styles'
+import { randomString } from '../../Utils';
 
 class HomePageScreen extends PureComponent {
   constructor(props) {
@@ -63,15 +65,7 @@ class HomePageScreen extends PureComponent {
     let search = this.props.navigation.getParam('search', null)
     DatabaseHandler.loadKeywords().then(res => {
       this.setState({ keywords: res, keyword: search || '' },
-        () => {
-          if (search !== null) {
-            DatabaseHandler.addKeyword(search).then(resadd => {
-              let data = [resadd, ...this.state.keywords]
-              this.setState({ keywords: data })
-            })
-          }
-          this._getData(1)
-        })
+        () => this._getData(1))
     })
   }
 
@@ -87,7 +81,12 @@ class HomePageScreen extends PureComponent {
     onPressItem={this._onPressKeyword(item)}
     onPressRemoveKeyword={this._removeKeyword(item)} />
 
-  _goToPreview = (item) => () => this.props.navigation.navigate('PreviewScreen', { data: item })
+  _goToPreview = (item) => () =>
+    this.props.navigation.navigate({
+      routeName: 'PreviewScreen',
+      params: { data: item },
+      key: 'PreviewScreen:' + randomString()
+    })
 
   _loadMore = () => {
     this.setState({ loading: true })
@@ -96,13 +95,7 @@ class HomePageScreen extends PureComponent {
 
   _onSearch = () => {
     if (this.state.keyword.length == 0) return
-    let find = this.state.keywords.findIndex(value => value.keyword === this.state.keyword)
-    if (find === -1) {
-      DatabaseHandler.addKeyword(this.state.keyword).then(res => {
-        let data = [res, ...this.state.keywords]
-        this.setState({ keywords: data })
-      })
-    }
+    DatabaseHandler.addKeyword(this.state.keyword).then(this._reloadHistoryTags())
     this._getData(1)
   }
 
@@ -120,16 +113,36 @@ class HomePageScreen extends PureComponent {
   }
 
   _onPressKeyword = (item) => () => {
-    this.setState({ keyword: item.keyword }, () => this._getData(1))
+    this.setState({ keyword: item.keyword },
+      () => {
+        DatabaseHandler.addKeyword(this.state.keyword).then(this._reloadHistoryTags())
+        this._getData(1)
+      })
   }
 
   _onBack = () => this.props.navigation.goBack()
+
+  _reloadHistoryTags = () => {
+    DatabaseHandler.loadKeywords().then(res => {
+      if (res !== this.state.keywords)
+        this.setState({ keywords: res })
+    })
+  }
+
+  _onWillFocus = (payload) => {
+    console.log('will focus', payload)
+    if (payload.action.type === 'Navigation/BACK') {
+      this._reloadHistoryTags()
+    }
+  }
 
   render() {
     let search = this.props.navigation.getParam('search', null)
     return (
       <LinearGradient colors={[Colors.g1, Colors.g2]}
         style={ApplicationStyles.mainContainer}>
+        <NavigationEvents
+          onWillFocus={this._onWillFocus} />
         {/* HEADER */}
         <View style={styles.header}>
           <View style={[styles.leftHeader, ApplicationStyles.center]}>
