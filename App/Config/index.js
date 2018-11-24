@@ -1,6 +1,6 @@
 export const Config = {
-  header: '404 Not Found',
-  hideNSFW: true,
+  header: 'nHentai',
+  hideNSFW: false,
   SFWImages: [
     {
       i: require('../Images/ai.jpg'),

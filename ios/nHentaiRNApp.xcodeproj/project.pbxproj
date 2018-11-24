@@ -40,7 +40,6 @@
 		7BA19C73144045889BDEB12B /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3478BF7CE48945E7BD22F544 /* libReactNativeConfig.a */; };
 		228D7477BD184FF689EA7619 /* libFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832B7AD9CB654EB1B068977B /* libFastImage.a */; };
 		8C323676292441139A0FB447 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A760E4073A354CB5B7BF1A78 /* libBVLinearGradient.a */; };
-		99C61FC077294D8A8E5DE5FB /* libRNPhotoView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C39D56D97B842559D9CD49D /* libRNPhotoView.a */; };
 		24DDA8CBE4824292A488E351 /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B3F09647AF40B888A222CE /* libRNSpinkit.a */; };
 		70FBDF07EB62424B9FAE8972 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 442CE28E79D3494E9CB68965 /* libRNVectorIcons.a */; };
 		EC13056087EC427CBF043A6D /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACBB3F86E9544E8BA2ACDCB7 /* Entypo.ttf */; };
@@ -369,8 +368,6 @@
 		832B7AD9CB654EB1B068977B /* libFastImage.a */ = {isa = PBXFileReference; name = "libFastImage.a"; path = "libFastImage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		68FA33C5005C4C98901D3C09 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		A760E4073A354CB5B7BF1A78 /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		2154FF84E72347AF950CAF6F /* RNPhotoView.xcodeproj */ = {isa = PBXFileReference; name = "RNPhotoView.xcodeproj"; path = "../node_modules/react-native-photo-view/ios/RNPhotoView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		7C39D56D97B842559D9CD49D /* libRNPhotoView.a */ = {isa = PBXFileReference; name = "libRNPhotoView.a"; path = "libRNPhotoView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		4AB0D3C41052444F9AAA4D0F /* RNSpinkit.xcodeproj */ = {isa = PBXFileReference; name = "RNSpinkit.xcodeproj"; path = "../node_modules/react-native-spinkit/ios/RNSpinkit.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		78B3F09647AF40B888A222CE /* libRNSpinkit.a */ = {isa = PBXFileReference; name = "libRNSpinkit.a"; path = "libRNSpinkit.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		80DC4D80D8E04B5F90B5BFF7 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; name = "RNVectorIcons.xcodeproj"; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
@@ -421,7 +418,6 @@
 				7BA19C73144045889BDEB12B /* libReactNativeConfig.a in Frameworks */,
 				228D7477BD184FF689EA7619 /* libFastImage.a in Frameworks */,
 				8C323676292441139A0FB447 /* libBVLinearGradient.a in Frameworks */,
-				99C61FC077294D8A8E5DE5FB /* libRNPhotoView.a in Frameworks */,
 				24DDA8CBE4824292A488E351 /* libRNSpinkit.a in Frameworks */,
 				70FBDF07EB62424B9FAE8972 /* libRNVectorIcons.a in Frameworks */,
 				765E39AC107F4463B1965E4B /* libVasern.a in Frameworks */,
@@ -614,7 +610,6 @@
 				05BAAAA42B0D4CFF8FEFCD13 /* ReactNativeConfig.xcodeproj */,
 				A1C424A1FC3842C08B5B4A1E /* FastImage.xcodeproj */,
 				68FA33C5005C4C98901D3C09 /* BVLinearGradient.xcodeproj */,
-				2154FF84E72347AF950CAF6F /* RNPhotoView.xcodeproj */,
 				4AB0D3C41052444F9AAA4D0F /* RNSpinkit.xcodeproj */,
 				80DC4D80D8E04B5F90B5BFF7 /* RNVectorIcons.xcodeproj */,
 				F0D9F904380B43DBA89BD0CB /* Vasern.xcodeproj */,
@@ -1282,14 +1277,12 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nHentaiRNApp.app/nHentaiRNApp";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
-					"$(SRCROOT)\..\node_modules\react-native-photo-view\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\vasern\ios\Vasern/**",
@@ -1314,14 +1307,12 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nHentaiRNApp.app/nHentaiRNApp";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
-					"$(SRCROOT)\..\node_modules\react-native-photo-view\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\vasern\ios\Vasern/**",
@@ -1350,7 +1341,6 @@
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
-					"$(SRCROOT)\..\node_modules\react-native-photo-view\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\vasern\ios\Vasern/**",
@@ -1378,7 +1368,6 @@
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
-					"$(SRCROOT)\..\node_modules\react-native-photo-view\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\vasern\ios\Vasern/**",
@@ -1411,14 +1400,12 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
-					"$(SRCROOT)\..\node_modules\react-native-photo-view\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\vasern\ios\Vasern/**",
@@ -1451,14 +1438,12 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
-					"$(SRCROOT)\..\node_modules\react-native-photo-view\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\vasern\ios\Vasern/**",
@@ -1490,14 +1475,12 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
-					"$(SRCROOT)\..\node_modules\react-native-photo-view\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\vasern\ios\Vasern/**",
@@ -1529,14 +1512,12 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-config\ios\ReactNativeConfig",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
-					"$(SRCROOT)\..\node_modules\react-native-photo-view\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-spinkit\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\vasern\ios\Vasern/**",

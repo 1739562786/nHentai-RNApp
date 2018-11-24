@@ -6,7 +6,6 @@ import com.facebook.react.ReactApplication;
 import com.reactlibrary.RNVasernPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
-import com.reactnative.photoview.PhotoViewPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.dylanvann.fastimage.FastImageViewPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
@@ -33,7 +32,6 @@ public class MainApplication extends Application implements ReactApplication {
             new RNVasernPackage(),
             new VectorIconsPackage(),
             new RNSpinkitPackage(),
-            new PhotoViewPackage(),
             new LinearGradientPackage(),
             new FastImageViewPackage(),
             new ReactNativeConfigPackage()

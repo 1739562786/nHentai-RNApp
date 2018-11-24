@@ -20,10 +20,21 @@ buildscript {
     }
 }
 
+subprojects {
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion rootProject.ext.compileSdkVersion
+                buildToolsVersion rootProject.ext.buildToolsVersion
+            }
+        }
+    }
+}
+
 allprojects {
     repositories {
-				// Add jitpack repository (added by react-native-spinkit)
-				maven { url "https://jitpack.io" }
+		// Add jitpack repository (added by react-native-spinkit)
+		maven { url "https://jitpack.io" }
         google()
         mavenLocal()
         jcenter()

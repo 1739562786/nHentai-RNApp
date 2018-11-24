@@ -42,5 +42,10 @@ export default StyleSheet.create({
   text: {
     color: 'white',
     paddingRight: 20
+  },
+  textCenter: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 26
   }
 })
