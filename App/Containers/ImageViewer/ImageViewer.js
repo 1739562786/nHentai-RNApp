@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Dimensions } from 'react-native'
 import Gallery from 'react-native-image-gallery'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { Config } from '../../Config'
@@ -66,6 +66,15 @@ export default class ImageViewerScreen extends React.Component {
           style={styles.container} initialPage={index}
           onPageSelected={this._onChangeImage}
           errorComponent={this.error}
+          flatListProps={{
+            initialNumToRender: 20,
+            initialScrollIndex: this.state.index,
+            getItemLayout: (data, index) => ({
+              length: Dimensions.get('screen').width,
+              offset: Dimensions.get('screen').width * index,
+              index
+            })
+          }}
           onSingleTapConfirmed={this._handleOnPressImage} />
         {hideHeader || this.header()}
       </View>
