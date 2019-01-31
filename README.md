@@ -1,4 +1,4 @@
-# nHentai API is dead, so this project is dead
+# [nHentai API is dead](https://twitter.com/fuckmaou/status/1084550608097603585), so this project is dead
 
 ## nHentai Reader
 
