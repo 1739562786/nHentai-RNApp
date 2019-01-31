@@ -1,3 +1,5 @@
+# nHentai API is dead, so this project is dead
+
 ## nHentai Reader
 
 ### THIS IS NSFW PROJECT
